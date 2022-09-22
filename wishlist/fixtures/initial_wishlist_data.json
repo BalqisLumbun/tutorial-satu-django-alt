@@ -42,6 +42,15 @@
             "harga_barang": "500000",
             "deskripsi": "Setengah Gaji Bulananku"
         }
+    },
+    {
+        "model": "wishlist.barangwishlist",
+        "pk": 6,
+        "fields": {
+            "nama_barang": "Furry Cosplay Kit",
+            "harga_barang": "300000",
+            "deskripsi": "Yang Tau tau Aja"
+        }
     }
 
 ]
