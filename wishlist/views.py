@@ -18,10 +18,16 @@ def show_wishlist(request):
     'wishlists': data_barang_wishlist,
     'nama': 'Balqis Lumbun -OKA',
     'npm' : '2106751184',
+    'uname':username_in(request),
     'last_login': request.COOKIES['last_login'],
 
     }
     return render(request, "wishlist.html", context)
+def username_in(request):
+    username = None
+    if request.user.is_authenticated:
+        username = request.user.username
+        return username
 def show_xml(request):
     data = BarangWishlist.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")

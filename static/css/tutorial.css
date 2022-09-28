@@ -1,0 +1,51 @@
+//selector {
+//    properties: value;
+//  }
+h3{
+    color: orange;
+    font-family: "Comic Sans MS";
+    font-weight: bolder;
+}
+h5 {
+    color: blue;
+    font-family: "Century Gothic";
+    font-weight: bolder;
+}
+b {
+    color: #C90668;
+    font-family: "Century Gothic";
+    font-weight: bolder;
+}
+table{
+    background-color:white;
+    border
+}
+th{
+    color: green;
+}
+a{
+    color: white;
+}
+a:hover{
+    color: orange;
+}
+#cont{
+    background-color: black;
+}
+#bg{
+    background-color: #3BE3D5;
+}
+li{
+    display: block;
+}
+li:hover{
+    background-color: #1702BA;
+    font-size: 20px;
+    transition: 300ms linear; 
+
+}
+
+button:hover{
+    font-size: 20px;
+    transition: 200ms linear;
+}
