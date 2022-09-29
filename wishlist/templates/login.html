@@ -7,38 +7,52 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 
-<div class="login">
-    <center>
-        <h1>Login</h1>
+<body>
+    <div id="bg">
+        <div class="login">
+            <center>
+                <link rel="stylesheet" href="{% static 'css/tutorial.css' %}" />
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 
-        <form method="POST" action="">
-            {% csrf_token %}
-            <table>
-                <tr>
-                    <td>Username: </td>
-                    <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-                </tr>
+                <nav class="navbar" style="background-color: rgb(86, 59, 238);">
+                    <ul>
+                        <li class="nav-item">Balqis Asy-Syifa Lumbun - 2106751184</li>
+                    </ul>
+                    <button type="button" class="btn btn-primary btn-sm"><a href="{% url 'wishlist:register' %}">Belum Punya Akun Ya?</a></button>
+                </nav>
+                <h1>Login</h1>
 
-                <tr>
-                    <td>Password: </td>
-                    <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-                </tr>
 
-                <tr>
-                    <td></td>
-                    <td><input class="btn login_btn" type="submit" value="Login"></td>
-                </tr>
-            </table>
-        </form>
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <table>
+                        <tr>
+                            <td>Username: </td>
+                            <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+                        </tr>
 
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %} Belum mempunyai akun? <a href="{% url 'wishlist:register' %}">Buat Akun</a>
-    </center>
-</div>
+                        <tr>
+                            <td>Password: </td>
+                            <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td><input class="btn btn-primary btn-sm" type="submit" value="Login"></td>
+                        </tr>
+                    </table>
+                </form>
+
+                {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %} Belum mempunyai akun? <a href="{% url 'wishlist:register' %}">Buat Akun</a>
+            </center>
+        </div>
+    </div>
+</body>
 
 {% endblock content %}
