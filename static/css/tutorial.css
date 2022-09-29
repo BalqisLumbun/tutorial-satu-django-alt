@@ -21,6 +21,7 @@ b {
 }
 th{
     color: green;
+    font-family: "Century Gothic";
 }
 a{
     color: white;
@@ -38,12 +39,14 @@ li{
     display: block;
     background-color: rgb(86, 59, 238);
     font-width: bold;
+    font-family: "Century Gothic";
 }
 li:hover{
     background-color: rgb(86, 59, 238);
     font-size: 20px;
     transition: 300ms linear; 
     font-width: bolder;
+    font-family: "Century Gothic";
 
 }
 
