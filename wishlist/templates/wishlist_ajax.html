@@ -9,6 +9,16 @@
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function yaa(event) {
+            event.preventDefault()
+            $.post("/ajax/submit/", {
+                nama_barang: document.getElementById('nama_barang').value,
+                harga_barang: document.getElementById('harga_barang').value,
+                deskripsi: document.getElementById('deskipsi').value,
+            });
+        }
+    </script>
     <script type="text/javascript">
         function refresh() {
             $(document).ready(function() {
