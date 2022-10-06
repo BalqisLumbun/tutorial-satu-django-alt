@@ -23,6 +23,19 @@ def show_wishlist(request):
 
     }
     return render(request, "wishlist.html", context)
+
+@login_required(login_url='/wishlist/login/')
+def show_wishlist_ajax(request):
+    data_barang_wishlist = BarangWishlist.objects.all()
+    context = {
+    'wishlists': data_barang_wishlist,
+    'nama': 'Balqis Lumbun -OKA',
+    'npm' : '2106751184',
+    'uname':username_in(request),
+    'last_login': request.COOKIES['last_login'],
+
+    }
+    return render(request, "wishlist_ajax.html", context)
 def username_in(request):
     username = None
     if request.user.is_authenticated:

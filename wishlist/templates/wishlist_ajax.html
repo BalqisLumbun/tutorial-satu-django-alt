@@ -1,0 +1,83 @@
+ {% extends 'base.html' %}{% load static %} {% block meta %}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #3BE3D5;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        function refresh() {
+            $(document).ready(function() {
+                refresh2();
+            })
+
+            $.ajax({
+                type: "GET",
+                url: '/wishlist/json/',
+                dataType: "json",
+                success: function(data) {
+                    dataa = data;
+                }
+
+            });
+            return dataa;
+        }
+
+        function refresh2() {
+            var dataa = refresh();
+            var itemHtml = "<table><tr><th>Nama</th><th>Harga</th><th>Deskripsi</th></tr>";
+            for (var i = 0; i < dataa.length; i++) {
+                var item = dataa[i].fields;
+                itemHtml += '<tr><th>' + item.nama_barang + '</th><th>' + item.harga_barang + '</th> <th>' + item.deskripsi + '</th> </tr>';
+            }
+            itemHtml += "</table>";
+            $('#sss').html(itemHtml);
+        }
+    </script>
+</head>
+{% endblock meta %} {% block content %}
+
+<body>
+    <link rel="stylesheet" href="{% static 'css/tutorial.css' %}" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <div id="sss"></div>
+    <div id="bg">
+
+        <nav class="navbar" style="background-color: rgb(86, 59, 238);">
+            <ul>
+                <li class="nav-item">{{nama}} - {{npm}} - {{uname}}</li>
+            </ul>
+            <button type="button" class="btn btn-primary btn-sm"><a href="{% url 'wishlist:logout' %}">Logout</a></button>
+        </nav>
+        <center>
+            <br>
+            <div>
+                <h3>Tutorial PBP</h3>
+                <h5>Nama Developer: </h5>
+                <b>{{nama}}</b>
+                <h5>Nama Pelanggan/Nomor Pelanggan: </h5>
+                <b>{{uname}} / {{npm}}</b>
+                <div style="overflow-x:auto;">
+                    <table class="table table-info table-bordered w-auto">
+                        <tr class="table table-success table-bordered">
+                            <th>Nama Barang</th>
+                            <th>Harga Barang</th>
+                            <th>Deskripsi</th>
+                        </tr>
+                    </table>
+                    <div id="display"></div>
+                </div>
+            </div>
+            <button id="what">New List!</button>
+            <p>Sesi terakhir login: {{ last_login }}</p>
+
+            <br>
+
+        </center>
+    </div>
+</body>
+{% endblock content %}
